@@ -1,42 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>My Portfolio</title>
     <style>
-        .main{
+        .main {
+            font-family: "Verdana";
             text-align: center;
+            background-color: deepskyblue;
         }
     </style>
 </head>
 <body>
 <div class="main" id="mainContainer" hidden>
-<img src=""
-height="100"
-width="100"
-id="profilepicture">
-  <h2 id="name"></h2>
-    <p id=""bio></p>
-<p id="followersinformation"></p>
-    check me on git hub <a id="githublink" >github</a>
+    <img src=""
+         height="200"
+         width="200"
+         id="profilepicture">
+    <h2 id="name"></h2>
+    <p>Address: Birtamode,Jhapa</p>
+    <p id="" bio></p>
+    <p id="followersinformation"></p>
+    <p>check me on <a id="githublink">github</a>
     </p>
-    <a class="twitter-timeline" data-lang="en" data-width="300" data-height="200" data-theme="dark" href="https://twitter.com/sulochan17?ref_src=twsrc%5Etfw">Tweets by sulochan17</a>
+        <h1>My Projects</h1>
+        <a id="project0"></a><br>
+        <a id="project1"></a><br>
+        <a id="project2"></a><br>
+        <a id="project3"></a><br>
+        <a id="project4"></a><br>
+    <a class="twitter-timeline" data-lang="en" data-width="300" data-height="200" data-theme="dark"
+       href="https://twitter.com/sulochan17?ref_src=twsrc%5Etfw">Tweets by sulochan17</a>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
+
 <script>
     fetch("https://api.github.com/users/sulochan19")
         .then(response => response.json())
-        .then(function(data) {
+        .then(function (data) {
             console.log(data)
-            let followersCount=data['followers']
-            document.getElementById("profilepicture").src=data['avatar_url']
-             document.getElementById("name").textContent=data['login']
+            let followersCount = data['followers']
+            document.getElementById("profilepicture").src = data['avatar_url']
+            document.getElementById("name").textContent = data['login']
             // document.getElementById("bio").textContent=data['bio']
+            //
+            // document.getElementById("followersinformation").textContent=followersCount
+            document.getElementById("githublink").href = data['html_url']
+            document.getElementById("mainContainer").hidden = false
+            // document.getElementById("projects").href = data['repos_url']
 
-            document.getElementById("followersinformation").textContent=followersCount
-            document.getElementById("githublink").href=data['html_url']
-            document.getElementById("mainContainer").hidden=false
+        })
+</script>
 
+<script>
+    fetch("https://api.github.com/users/sulochan19/repos")
+        .then(response => response.json())
+        .then(function (data) {
+            console.log(data)
+            document.getElementById("project0").href = data[0]['html_url']
+            document.getElementById("project1").href = data[0]['html_url']
+            document.getElementById("project2").href = data[1]['html_url']
+            document.getElementById("project3").href = data[2]['html_url']
+            document.getElementById("project4").href = data[3]['html_url']
         })
 </script>
 </body>
