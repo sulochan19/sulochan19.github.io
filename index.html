@@ -8,7 +8,7 @@
         .main {
             font-family: "Verdana";
             text-align: center;
-            background-color: deepskyblue;
+            background-color: #a5f5ff;
         }
     </style>
 </head>
@@ -25,11 +25,11 @@
     <p>check me on <a id="githublink">github</a>
     </p>
         <h1>My Projects</h1>
-        <a id="project0"></a><br>
-        <a id="project1"></a><br>
-        <a id="project2"></a><br>
-        <a id="project3"></a><br>
-        <a id="project4"></a><br>
+        <a id="project0"><p id="project0"></p></a><br>
+        <a id="project1"><p id="project1"></p></a><br>
+        <a id="project2"><p id="project2"></p></a><br>
+        <a id="project3"><p id="project3"></p></a><br>
+        <a id="project4"><p id="project4"></p></a><br>
     <a class="twitter-timeline" data-lang="en" data-width="300" data-height="200" data-theme="dark"
        href="https://twitter.com/sulochan17?ref_src=twsrc%5Etfw">Tweets by sulochan17</a>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -63,6 +63,17 @@
             document.getElementById("project2").href = data[1]['html_url']
             document.getElementById("project3").href = data[2]['html_url']
             document.getElementById("project4").href = data[3]['html_url']
+
+            document.getElementById("project0").textContent = data[0]['name']
+
+            document.getElementById("project1").textContent = data[1]['name']
+
+            document.getElementById("project2").textContent = data[2]['name']
+
+            document.getElementById("project3").textContent = data[3]['name']
+
+
+            document.getElementById("project4").textContent = data[0]['name']
         })
 </script>
 </body>
